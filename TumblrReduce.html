@@ -4,74 +4,77 @@
 	<meta charset="UTF-8">
 	<title>TumblrReduce</title>
 	<link rel="stylesheet" href="TumblrReduce.css" type="text/css">
+	<script src='jQuery.js'></script>
+	<script src='TumblrReduce.js'></script>
+	<!-- some styling but im lazy to implement yet -->
+	<!-- <link rel="stylesheet" href="scroller.css" type="text/css"> -->
+	<!-- <script src='mousewheel.js'></script> -->
+	<!-- <script src='mousewheel2.js'></script> -->
+	<!-- <script src='scroller.js'></script> -->
 </head>
 <body>
 	<div class="page">
+		<div class="header">
+			<a>
+				<div class="header-title">Customize your setting here:
+				<br/>
+				<h6 id="headerMessage"></h6>
+				</div>
+			</a>
+			<a href="#"> <div id="panel1" onclick="headerSetting('panel1');" onmouseover="headerChangeMessage('Enable photo posts');" onmouseleave="headerChangeMessage('');" class="">show photos</div> </a>
+			<a href="#"> <div id="panel2" onclick="headerSetting('panel2');" onmouseover="headerChangeMessage('Enable video posts');" onmouseleave="headerChangeMessage('');" class="">show videos</div> </a>
+			<a href="#"> <div id="panel3" onclick="headerSetting('panel3');" onmouseover="headerChangeMessage('Enable animated photo posts');" onmouseleave="headerChangeMessage('');" class="">show gifs</div> </a>
+			<a href="#"> <div id="panel4" onclick="headerSetting('panel4');" onmouseover="headerChangeMessage('Enable chat posts');" onmouseleave="headerChangeMessage('');" class="">show chats</div> </a>
+			<a href="#"> <div id="panel5" onclick="headerSetting('panel5');" onmouseover="headerChangeMessage('Enable text/quote posts');" onmouseleave="headerChangeMessage('');" class="">show texts</div> </a>
+			<a href="#"> <div id="panel6" onclick="headerSetting('panel6');" onmouseover="headerChangeMessage('Enable audio posts');" onmouseleave="headerChangeMessage('');" class="">show audios</div> </a>
+			<a href="#"> <div id="panel7" onclick="headerSetting('panel7');" onmouseover="headerChangeMessage('Enable link posts');" onmouseleave="headerChangeMessage('');" class="">show links</div> </a>
+			<a href="#"> <div id="panel8" onclick="headerSetting('panel8');" onmouseover="headerChangeMessage('Enable autoplay on posts');" onmouseleave="headerChangeMessage('');" class="">autoplay medias</div> </a>
+		</div>
 		<div class="background">
 			<div class="sidebar">
-				<!-- <a href="index.html" id="logo"><img src="images/logo.png" alt="logo"></a> -->
-				<ul class="navigation">
+				<ul class="navigation" id="showList">
+				</ul>
+				<ul class="navigation" id="showMisc">
 					<li class="navigationsub">
-						<a href="">List of Tumblr Websites: </a>
+						<a href="#">Posts Category: </a>
 					</li>
 					<li class="selected">
-						<a href="index.html">Home</a>
+						<a href="#">&gt;Favourite</a>
 					</li>
-					<li>
-						<a href="about.html">About Us</a>
-					</li>
-					<li>
-						<a href="classes.html">Classes</a>
-					</li>
-					<li>
-						<a href="tournaments.html">Tournaments</a>
-					</li>
-					<li>
-						<a href="contact.html">Contact Us</a>
-					</li>
-					<li>
-						<a href="blog.html">Blog News</a>
+					<li class="selected">
+						<a href="#">&gt;Seen Posts</a>
 					</li>
 				</ul>
 			</div>
 			<div class="body">
 				<div>
 					<div>
-						<h3>A Chess Club For All Ages</h3>
-						<p>
-							This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template without linking back to us.
-						</p>
-						<p>
-							If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
-						</p>
-						<div class="first">
-							<p>
-								Classes And <br> Tutorials For Kids <br> Private Or Group
-							</p>
+						<h3 id="blogwebsite">
+							Tumblr Reduce: Now showing posts from <b id="blogname">all blogs</b>.
+						</h3>
+						<div class="toptoolbar">
+						<!-- <a href="#" onclick="makeFavourite();"> -->
+							<!-- <div class="favourited"> -->
+								<!-- Make Favourite -->
+							<!-- </div> -->
+						<!-- </a> -->
+						<a href="#" onclick="reloadPage();">
 							<div>
-								<p>
-									Choose between private and group classes for kids or adults. It's never too late to learn how to play chess!
-								</p>
-								<a href="classes.html">Learn More</a>
+								Refresh
 							</div>
+						</a>
 						</div>
-						<div>
-							<p>
-								The Exclusive Club <br> Chess Set
-							</p>
-							<div>
-								<p>
-									Carved from hard wood by hand and finished off with italian varnish. Only 10 sets made in the world.
-								</p>
-								<a href="blog.html">Go to Blog</a>
+						<div class="player">
+							<!-- <div class="button"> -->
+							<!-- &lt;&lt; -->
+							<!-- </div> -->
+							<div class="showplayer" id="splayer">
+								<div id="showContent">
+								</div>
 							</div>
-						</div>
-						<div class="section">
-							<h3>Chess Tip Of The Day</h3>
-							<p>
-								Cras et velit auctor urna posuere dignissim. Vivamus nec enim elementum massa lacinia congue a nec diam. Integer egestas, ipsum vel viverra euismod, diam tellus imperdiet nulla, condimentum bibendum lorem lacus in lacus.
-							</p>
-							<a href="classes.html">More Tips</a>
+							<!-- <div class="button"> -->
+							<!-- &gt;&gt; -->
+							<!-- </div> -->
 						</div>
 					</div>
 				</div>

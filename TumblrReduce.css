@@ -1,9 +1,11 @@
 /* Website template by freewebsitetemplates.com */
 /*------------------------- Layout styles ------------------------*/ 
 body {
-	background:url(images/bg-body.jpg);
+	/* background:url(images/bg-body.jpg); */
 	margin:0;
+	background-color:#f9f3d4;
 }
+
 .page {
 	margin:0 auto;
 	overflow:hidden;
@@ -28,10 +30,79 @@ p a:hover {
 	font-weight: normal;
 	font-style: normal;
 }
+
+/*------------------------- Head ------------------------*/
+.header {
+	width:1200px;
+	overflow:hidden;
+	margin: 0 auto;
+	position:relative;
+	box-shadow: 0 5px 10px -6px #333333;
+}
+
+.header a div.header-title{
+	width:400px;
+	height:80px;
+	float:left;
+	text-align:center;
+	padding:60px 0px 0px 0px;
+	font-family:QuicksandRegular;
+	font-size:18px;
+	font-weight: bold;
+	text-transform:capitalize;
+	background-color:#bcaf9f;
+}
+.header a div.header-title:hover{
+	background-color:#bcaf9f;
+}
+
+.header a div.header-title h6{
+	text-transform:none;
+	font-weight:normal;
+}
+.header a div {
+	/* background */
+	float:left;
+	width:200px;
+	height:40px;
+	background-color:#ccccfc;
+	text-align:center;
+	padding:30px 0px 0px 0px;
+	transition:.5s;
+	
+	/* text */
+	font-family:QuicksandRegular;
+	font-size:18px;
+	text-transform:capitalize;
+	text-decoration:none;
+	color:#535d5d;
+}
+
+.header a div:hover{
+	background-color:#f3f3ff;
+	color:#101010;
+}
+
+.header a div.clicked
+{
+	background-color: #586860;
+	color:#e8e8e8;
+	transition:.5s;
+}
+
+.header a div.clicked:hover{
+	background-color:#555550;
+}
+
 /*------------------------- Sidebar ------------------------*/
 .sidebar {
 	float:left;
-	width:260px;
+	width:259px;
+	background-color:#e5e5e5;
+	border-style: solid;
+	border-width: 0 0 1px 1px;
+	border-color: #dfd0bf;
+	box-shadow: 0 0 10px 0 #333333;
 }
 .sidebar a#logo {
 	display:block;
@@ -45,24 +116,27 @@ p a:hover {
 .sidebar ul.navigation {
 	list-style:none;
 	margin:0;
-	padding:0;
+	padding:30px 0;
 }
 
 .sidebar ul.navigation li.navigationsub a{
 	background:url(images/bg-menu-selected.png) repeat-x;
-	color:#eef6f8;
-	
-}
-.sidebar ul.navigation li.selected a {
-	background-color:#206654;
-	color:#eef6f8;
-	outline:none;
-	outline:none;
-}
-.sidebar ul.navigation li.selected a:hover {
+	text-transform:none;
 	color:#eef6f8;
 }
+/* .sidebar ul.navigation li.selected a { */
+	/* background-color:#206654; */
+	/* color:#eef6f8; */
+	/* outline:none; */
+	/* outline:none; */
+/* } */
+/* .sidebar ul.navigation li.selected a:hover { */
+	/* color:#eef6f8; */
+/* } */
+
 .sidebar ul.navigation li {
+	border-style: solid;
+	border-width: 0 0 0 5px;
 	margin:0 0 11px;
 	padding:0;
 	text-align:left;
@@ -78,7 +152,7 @@ p a:hover {
 	padding:0 0 0 10px;
 	text-decoration:none;
 	text-shadow:1px 0 0 #fbf6f2;
-	text-transform:uppercase;
+	text-transform:lowercase;
 	outline:none;
 }
 /*------------------------- Body ------------------------*/
@@ -87,12 +161,35 @@ p a:hover {
 	width:940px;
 }
 .body div div {
-	background-color:#dccfaf;
 	width:auto;
 	color:#447f8d;
-	min-height:781px;
 	padding:0 0 3px;
 }
+
+.body div div div.toptoolbar
+{
+	width: auto;
+	margin: 15px 25px 30px;
+}
+.body div div div.toptoolbar div {
+	background-color:#fcffff;
+	float:left;
+	color:#447f8d;
+	padding:1px 15px 3px;
+	font-family:QuicksandRegular;
+	font-size:12px;
+	border-bottom-style: solid;
+	border-right: solid;
+	border-width: 1px;
+	border-color: #888888;
+}
+.body div div div.toptoolbar div.favourited {
+	background-color:#ff9a8a;
+	color:#eeeeef;
+	border-color: #a888a8;
+	margin:0 5px;
+}
+
 .body div div h3 {
 	font-family:QuicksandRegular;
 	font-size:24px;
@@ -100,528 +197,66 @@ p a:hover {
 	padding:21px 20px 0;
 	font-weight:normal;
 }
-.body div div p {
-	color:#383836;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	line-height:24px;
-	text-align:justify;
-	margin:26px 0 35px;
-	padding:0 20px;
+
+.body div div div.player
+{
+	background-color: #feffff;
+	width:900px;
+	overflow: auto;
+	margin: 0 20px;
 }
-.body div div p a {
-	color:#4a8394;
-	outline:none;
+
+.body div div div.player div.button
+{
+	width: auto;
+	float: left;
+	padding: 0 10px;
 }
-.body div div div.first {
-	background:url(images/chess-kid.jpg) no-repeat;
-	height:198px;
-	min-height:0;
-	padding:0;
-}
-.body div div div.first p {
-	color:#FFF;
+.body div div div.player div.showplayer
+{
+	box-shadow: 0 0 10px 0 #333333;
+	border: solid 1px;
+	width: 898px;
+	height: 600px;
+	overflow-y:scroll;
 	float:left;
-	font-family:QuicksandRegular;
-	font-size:26px;
-	line-height:32px;
-	text-align:right;
-	text-transform:uppercase;
-	margin:16px 0 0 260px;
-	padding:0;
+	text-align: justify;
 }
-.body div div div.first div {
-	background:url(images/bg-gradient.png) repeat-x;
-	float:right;
-	height:197px;
-	width:197px;
-	border-color:#7d9794;
-	border-style:solid none none solid;
-	border-width:1px;
-}
-.body div div div.first div p {
-	font-size:14px;
-	line-height:22px;
-	text-align:left;
-	text-transform:none;
-	width:130px;
-	margin:10px 0;
-	padding:4px 20px 10px;
-}
-.body div div div {
-	background:url(images/chessboard.jpg) no-repeat;
-	height:197px;
-	min-height:0;
-	padding:0;
-}
-.body div div div p {
-	color:#FFF;
-	float:left;
-	font-family:QuicksandRegular;
-	font-size:26px;
-	line-height:32px;
-	text-align:right;
-	text-transform:uppercase;
-	margin:16px 0 0 40px;
-	padding:0;
-}
-.body div div div div {
-	background:url(images/bg-gradient.png) repeat-x;
-	float:right;
-	height:197px;
-	width:197px;
-}
-.body div div div div p {
-	font-size:14px;
-	line-height:22px;
-	text-align:left;
-	text-transform:none;
-	color:#fff;
-	width:140px;
-	margin:10px 0;
-	padding:4px 20px 10px;
-}
-.body div div div.section {
-	background-color:#DCCFAF;
-	background:none;
-	height:187px;
-	min-height:0;
-}
-.body div div div.section h3 {
-	margin:0 0 23px;
+
+.body div div div.player div.showplayer div div.favourited
+{
+	background-color:#ff9a8a;
+	color:#eeeeef;
+	border-color: #a888a8;
+	border-bottom-style: solid;
+	border-right-style: solid;
+	border-width: 1px;
+	margin:0 15px;
+	padding: auto;
+  width: 120px;
+	text-align: center;
+	float: left;
+	font-size: 13px;
 	font-weight: normal;
 }
-.body div div div.section p {
-	font-size:14px;
-	color:#383836;
-	font-family:QuicksandRegular;
-	text-transform:none;
-	width:605px;
-	border:1px solid #285069;
-	text-align:justify;
-	line-height:27px;
-	margin:0 10px 33px 20px;
-	padding:0 20px;
-}
-.body div div div.section a {
-	background:url(images/interface.png) no-repeat -10px -276px;
-	color:#F3F9F9;
-	display:block;
-	float:right;
-	font-family:QuicksandRegular;
-	font-size:12px;
-	height:30px;
-	line-height:30px;
-	text-align:center;
-	text-decoration:none;
-	text-transform:uppercase;
-	width:79px;
-	margin:20px 33px 0 0;
-	outline:none;
-}
-.body div div.about h4, .body div div.classes h4 {
-	color:#454545;
-	text-transform:uppercase;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	font-weight:700;
-	margin:30px 0 0;
-	padding:0 20px;
-}
-.body div div.classes h3 {
-	margin-bottom:30px;
-}
-.body div div.classes h4, .body div div.contact h4 {
-	color:#454545;
-	font-weight:700;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	text-transform:uppercase;
-	margin:30px 0 6px;
-	padding:0 20px;
-}
-.body div div.classes span {
-	color:#454545;
-	font-weight:700;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	display:block;
-	line-height:25px;
-	padding:0 20px;
-}
-.body div div.classes p {
-	margin:30px 0 0;
-}
-.body div div.contact {
-	padding:0 0 40px;
-}
-.body div div.contact h3 {
-	font-family:QuicksandRegular;
-	font-size:24px;
-	margin:0 0 30px;
-	padding:21px 20px 0;
-}
-.body div div.contact p {
-	margin:0;
-}
-.body div div.contact form {
-	padding:30px 20px;
-}
-.body div div.contact form table {
-	width:753px;
-}
-.body div div.contact form tr {
-	margin-bottom:10px;
-	display:block;
-	overflow:hidden;
-}
-.body div div.contact form td:first-child {
-	float:left;
-}
-.body div div.contact form td {
-	display:inline-block;
-	float:right;
-}
-.body div div.contact form label span {
-	color:#fa1c17;
-}
-.body div div.contact form label.message {
-	margin:0 0 0 3px;
-}
-.body div div.contact form input {
-	display:block;
-	width:302px;
-	height:15px;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	color:#383836;
-	border-color:#464646 #8C8678 #64615C #7C756B;
-	border-style:solid;
-	border-width:1px;
-	padding:5px;
-}
-.body div div.contact form textarea {
-	display:block;
-	width:735px;
-	height:186px;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	color:#383836;
-	border-color:#464646 #8C8678 #64615C #7C756B;
-	border-style:solid;
-	border-width:1px;
-	margin:0 0 10px 3px;
-	padding:5px;
-}
-.body div div.contact form input#submit {
-	display:block;
-	background:url(images/interface.png) no-repeat -10px -276px;
-	width:79px;
-	height:30px;
-	color:#fff;
-	font-family:QuicksandRegular;
-	text-transform:uppercase;
-	border:0;
-	cursor:pointer;
-	margin:0 0 0 3px;
-	padding:0;
-	overflow:auto;
-}
-.body div div.contact form input#submit:hover {
-	background:url(images/interface.png) no-repeat -10px -352px;
-}
-.body div div.contact div {
-	background:none;
-	border:1px solid #285167;
-	height:98px;
-	margin:0 20px;
-	padding:5px 65px;
-}
-.body div div.contact div p {
-	background:url(images/icon-home.png) no-repeat left 5px;
-	float:left;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	color:#383836;
-	text-align:left;
-	text-transform:none;
-	padding:0 30px;
-}
-.body div div.contact div span#phone {
-	background:url(images/icons.png) no-repeat -10px -126px;
-	height:20px;
-	margin-top:8px;
-	float:left;
-	width:285px;
-	padding:0 0 0 25px;
-}
-.body div div.contact div span#fax {
-	float:left;
-	width:285px;
-	background:url(images/icons.png) no-repeat -10px -96px;
-	margin:13px 0 14px;
-	padding:0 0 0 25px;
-}
-.body div div.contact div span#email2 {
-	width:285px;
-	float:left;
-	background:url(images/icons.png) no-repeat -10px -156px;
-	padding:0 0 0 25px;
-}
-.body div div.contact div span#email2 a {
-	color:#464646;
-}
-.body div div.contact div span#email2 a:hover {
-	color:#437f90;
-}
-.body div div.tournaments {
-	padding:0 0 40px;
-}
-.body div div.tournaments p {
-	margin:30px 0 10px;
-}
-.body div div.tournaments table {
-	border-collapse:collapse;
-	width:750px;
-	margin:0 20px;
-}
-.body div div.tournaments table tr.title {
-	background-color:#77a9b4;
-	height:47px;
-}
-.body div div.tournaments table tr.title td h3 {
-	font-family:QuicksandRegular;
-	font-size:18px;
-	font-weight:400;
-	color:#fff;
-	padding:0;
-}
-.body div div.tournaments table tr.month {
-	background-color:#447f91;
-	color:#fff;
-	text-transform:uppercase;
-	font-family:QuicksandRegular;
-	font-size:12px;
-	font-weight:700;
-}
-.body div div.tournaments table td {
-	border:1px solid #504f4d;
-	padding:8px 0 8px 10px;
-}
-.body div div.tournaments table td h3 {
-	font-family:QuicksandRegular;
-	font-size:20px;
-	color:#fff;
-	padding:0;
-}
-.body div div.tournaments table td p {
-	margin:0;
-	padding:0;
-}
-.body div.blog {
-	width:531px;
-	float:left;
-	position:relative;
-}
-.body div.blog > div:first-child {
-	padding:0 0 30px;
-}
-.body div.blog > div {
-	min-height:516px;
-	padding:0 0 40px;
-}
-.body div.blog div div:first-child {
-	background:none;
-	height:auto;
-	border:0;
-	width:531px;
-}
-.body div.blog div div:first-child img {
-	width:531px;
-}
-.body div.blog > div:first-child div:first-child p {
-	margin:-68px 20px 0;
-}
-.body div.blog div div:first-child p {
-	background-color:#464646;
-	color:#DDD0AE;
-	float:none;
-	height:22px;
-	font-size:12px;
-	line-height:21px;
-	text-transform:none;
-	text-align:left;
-	position:relative;
-	width:471px;
-	margin:-69px 20px 0;
-	padding:0 0 0 20px;
-}
-.body div.blog div div:first-child p a, .body div.blog div div:first-child p span {
-	background:none repeat scroll 0 0 transparent;
-	color:#FFF!important;
-	display:inline;
-	font-weight:700;
-	height:auto;
-	text-decoration:none;
-	font-size:12px;
-	line-height:21px;
-	text-transform:none;
-	outline:none;
-	margin:0;
-}
-.body div.blog div div:first-child p a:hover {
-	background:none repeat scroll 0 0 transparent;
-}
-.body div.blog div div:first-child a {
-	background:none repeat scroll 0 0 #447F91;
-	display:block;
-	height:41px;
-	position:relative;
-	width:491px;
-	font-family:QuicksandRegular;
-	font-size:15px;
-	color:#fff;
-	text-decoration:none;
-	text-indent:20px;
-	line-height:45px;
-	border:0;
-	text-transform:none;
-	margin:0 20px;
-	padding:0;
-	outline:none;
-}
-.body div.blog div div:first-child a h2 {
-	margin:0;
-}
-.body div.blog div div:first-child a:hover {
-	background:none #36667a;
-}
-.body div.blog div div {
-	width:491px;
-	height:47px;
-	background:none;
-	min-height:0;
-	border-color:#285167;
-	border-style:solid none;
-	border-width:1px;
-	margin:0 auto;
-}
-.body div.blog div p {
-	margin:15px 0;
-	padding:0 19px;
-}
-.body div.blog div div a {
-	height:42px;
-	color:#464648;
-	font-family:QuicksandRegular;
-	font-size:12px;
-	text-decoration:none;
-	font-weight:700;
-	text-transform:uppercase;
-	display:inline-block;
-	line-height:47px;
-	border-color:#285167;
-	border-style:none solid none none;
-	border-width:1px;
-	margin:2px 0 0 10px;
-	padding:0 15px 0 28px;
-	outline:none;
-}
-.body div.blog div div a#more, .body div.blog div div a#more1 {
-	background:url(images/icons.png) no-repeat -10px -54px;
-}
-.body div.blog div div a#date, .body div.blog div div a#date1 {
-	background:url(images/icons.png) no-repeat -10px -22px;
-}
-.body div.blog div div a#comments, .body div.blog div div a#comments1 {
-	background:url(images/icons.png) no-repeat -10px 10px;
-	border:0;
-}
-.body div.sidebar {
-	width:256px;
-	background-color:#464646;
-	border-color:#4e4e4c;
-	border-style:none solid none none;
-	border-width:1px;
-	padding:0 0 77px;
-	min-height: 1037px;
-}
-.body div.sidebar div:first-child {
-	border:0;
-	padding-top:50px;
-}
-.body div.sidebar div {
-	background-color:#464646;
-	width:216px;
-	min-height:0;
-	border-color:#d78e30;
-	border-style:solid none none;
-	border-width:1px;
-	margin:0 20px;
-	padding:16px 0 0;
-}
-.body div.sidebar div h4 {
-	color:#d78e30;
-	text-transform:uppercase;
-	font-family:QuicksandRegular;
-	font-size:14px;
-	margin:0 0 6px;
-}
-.body div.sidebar div ul {
-	list-style:none;
-	margin:0 0 7px;
-	padding:0;
-}
-.body div.sidebar div:first-child ul li:first-child {
-	background:none;
-	padding:0 0 13px;
-}
-.body div.sidebar div:first-child ul li {
-	background:url(images/border-dashed.png) repeat-x left top;
-	padding:9px 0;
-}
-.body div.sidebar div:first-child ul li a p {
-	line-height:30px;
-}
-.body div.sidebar div ul li a {
-	text-decoration:none;
-	color:#fff;
-	font-family:QuicksandRegular;
-	font-size:12px;
-	line-height:30px;
-	outline:none;
-	display: block;
-}
-.body div.sidebar div ul li a:hover p, .body div.sidebar div ul li a:hover {
-	color:#76a9b4;
-}
-.body div.sidebar div ul li a p {
-	text-transform:none;
-	color:#fff;
-	font-family:QuicksandRegular;
-	font-size:12px;
-	line-height:24px;
-	margin:0;
-	padding:0;
-	outline:none;
-}
-.body div div div.first div a, .body div div div div a {
-	color:#ace2ee;
-	text-transform:uppercase;
-	font-size:12px;
-	font-family:arial;
-	font-weight:700;
-	text-decoration:none;
-	background:url(images/icons.png) no-repeat 75px -185px;
-	margin:0 0 0 20px;
-	padding:0 15px 0 0;
-	outline:none;
-}
-.body div div.contact form label, .body div div.contact div span {
-	font-family:QuicksandRegular;
-	font-size:14px;
-	color:#383836;
-}
+.body div div div.player div.showplayer div div a 
+{
+	text-decoration: none;
+}
+.body div div div.player div.showplayer div div
+{
+	margin: 15px 1px;
+	border-bottom-style: dashed;
+	border-width = 2px;
+	font-family: Segoe UI;
+	color: #111214;
+}
+
+.body div div div.player div.showplayer div div .playerimages
+{
+	margin: 12px 3px;
+}
+
 /*------------------------- Footer ------------------------*/
 .footer {
 	border-color:#fff;
