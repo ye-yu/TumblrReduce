@@ -6,11 +6,6 @@
 	<link rel="stylesheet" href="TumblrReduce.css" type="text/css">
 	<script src='jQuery.js'></script>
 	<script src='TumblrReduce.js'></script>
-	<!-- some styling but im lazy to implement yet -->
-	<!-- <link rel="stylesheet" href="scroller.css" type="text/css"> -->
-	<!-- <script src='mousewheel.js'></script> -->
-	<!-- <script src='mousewheel2.js'></script> -->
-	<!-- <script src='scroller.js'></script> -->
 </head>
 <body>
 	<div class="page">
@@ -53,11 +48,6 @@
 							Tumblr Reduce: Now showing posts from <b id="blogname">all blogs</b>.
 						</h3>
 						<div class="toptoolbar">
-						<!-- <a href="#" onclick="makeFavourite();"> -->
-							<!-- <div class="favourited"> -->
-								<!-- Make Favourite -->
-							<!-- </div> -->
-						<!-- </a> -->
 						<a href="#" onclick="reloadPage();">
 							<div>
 								Refresh
@@ -65,16 +55,12 @@
 						</a>
 						</div>
 						<div class="player">
-							<!-- <div class="button"> -->
-							<!-- &lt;&lt; -->
-							<!-- </div> -->
 							<div class="showplayer" id="splayer">
 								<div id="showContent">
 								</div>
+								<hr>
+								<input type="button" value="Load More" onclick="pushContent();" />
 							</div>
-							<!-- <div class="button"> -->
-							<!-- &gt;&gt; -->
-							<!-- </div> -->
 						</div>
 					</div>
 				</div>

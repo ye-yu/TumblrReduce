@@ -223,6 +223,22 @@ p a:hover {
 	text-align: justify;
 }
 
+.body div div div.player div.showplayer div div.nonfavourite
+{
+	background-color:#f2faf4;
+	color:#11115f;
+	border-color: #a888a8;
+	border-bottom-style: solid;
+	border-right-style: solid;
+	border-width: 1px;
+	margin:0 15px;
+	padding: auto;
+  width: 120px;
+	text-align: center;
+	float: left;
+	font-size: 13px;
+	font-weight: normal;
+}
 .body div div div.player div.showplayer div div.favourited
 {
 	background-color:#ff9a8a;
@@ -257,6 +273,22 @@ p a:hover {
 	margin: 12px 3px;
 }
 
+.body div div div.player div.showplayer input
+{
+	font-size: 15px;
+	font-family:QuicksandRegular;
+	padding: 2px 85px;
+	margin: 50px 300px;
+	background-color: #dee0f0;
+	border-width: 1px;
+	border-color: #aaaaef;
+}
+
+.body div div div.player div.showplayer video
+{
+	width: 100%;
+	height: 400px;
+}
 /*------------------------- Footer ------------------------*/
 .footer {
 	border-color:#fff;
