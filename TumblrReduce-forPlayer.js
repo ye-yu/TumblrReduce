@@ -76,6 +76,7 @@ function addImagesToDiv(div, imageLink, isGIF)
 	if (isGIF)
 	{
 		img.src = "placeholder.png";
+		if (headerConfig['panel3']) img.src = imageLink;
 		img.onclick = function() {
 			this.src = imageLink;
 		}
