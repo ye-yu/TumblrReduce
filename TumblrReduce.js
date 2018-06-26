@@ -69,6 +69,7 @@ window.onload = function()
 		siteList = JSON.parse(localStorage['siteList']);
 		favourites = JSON.parse(localStorage['favourites']);
 		seenposts = JSON.parse(localStorage['seenposts']);
+		seen = JSON.parse(localStorage['seen']);
 		checkSiteList();
 	}
 	//setting of header
@@ -96,7 +97,7 @@ window.onload = function()
 		e.preventDefault();
 	}
 	);
-	findMedia("all blogs");
+	//findMedia("all blogs");
 }
 
 function getPlayerScrollerInfo()
@@ -112,6 +113,7 @@ function saveToLocalStorage()
 	localStorage.setItem('siteList', JSON.stringify(siteList));
 	localStorage.setItem('favourites', JSON.stringify(favourites));
 	localStorage.setItem('seenposts', JSON.stringify(seenposts));
+	localStorage.setItem('seen', JSON.stringify(seen));
 
 }
 

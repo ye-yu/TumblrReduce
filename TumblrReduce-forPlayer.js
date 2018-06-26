@@ -1,9 +1,10 @@
 var photosetduo = false; //to put <br> on alternate for photosets
 var photodict = [], photosetdict = [], videodict = [], textdict = [], showdict = [];
-var posts = [], seenposts = [];
+var posts = [], seenposts = [], seen = [];
 var siteList = [];
 var favourites = [], favposts = [];
-var reducepercentage = 50;
+var reducepercentage = 35;
+var hideSeen = true;
 function reloadPage()
 {
 	document.getElementById("showContent").innerHTML = '';
@@ -14,7 +15,7 @@ function checkPosts(post)
 {
 	if (post)
 	{
-		if(seenposts.indexOf(post['content']['id']) > -1) return true;
+		if(seen.indexOf(post['content']['id']) > -1) return true;
 		else return false;
 	}
 	else return false;
@@ -22,11 +23,15 @@ function checkPosts(post)
 function pushContent()
 {
 	var e = showdict.pop();
-	while(checkPosts(e)) e = showdict.pop();
+	while(checkPosts(e) && hideSeen) e = showdict.pop();
 	if(e)
 	{
 		photosetduo = false;
-		seenposts.push(e['content']['id']);
+		if (hideSeen)
+		{
+			seenposts.push(e);
+			seen.push(e['content']['id']);
+		}
 		var frag = document.createDocumentFragment();
 		var d = document.createElement("div");
 		var date = document.createElement("b");
@@ -76,7 +81,7 @@ function addImagesToDiv(div, imageLink, isGIF)
 	if (isGIF)
 	{
 		img.src = "placeholder.png";
-		if (headerConfig['panel3']) img.src = imageLink;
+		if (headerConfig['panel8']) img.src = imageLink;
 		img.onclick = function() {
 			this.src = imageLink;
 		}
@@ -115,7 +120,11 @@ function trimToAPI(source)
 
 function findMedia(blogName)
 {
-	if(blogName == "all blogs") 
+	console.log(blogName);
+	document.getElementById('blogname').innerHTML = blogName;
+	if (blogName == "seen") hideSeen = false;
+	else hideSeen = true;
+	if(blogName == "all blogs" || blogName == "seen") 
 	{
 		for (var i = 0; i < siteList.length; i++) 
 			findMediaS(siteList[i], false);
@@ -125,6 +134,7 @@ function findMedia(blogName)
 		findMediaS(blogName, true);
 	}
 	makeShowDict();
+	reloadPage();
 }
 
 //apparently it doesn't support method overloading
@@ -132,11 +142,15 @@ function findMediaS(blogName, clearDictionaries)
 {
 	if(clearDictionaries)
 	{
-		photodict = photosetdict = videodict = textdict = showdict = [];
+		photodict = [];
+		photosetdict = [];
+		videodict = [];
+		textdict = [];
+		showdict = [];
 	}
 	console.log("Loading content from:");
 	console.log("file:///C:/Users/raflie/Desktop/miscellaneous/TumblrReduce/" + blogName + ".json");
-	var content = getWebsiteContent("file:///C:/Users/raflie/Desktop/miscellaneous/TumblrReduce/" + blogName + ".json");
+	var content = getWebsiteContent(blogName + ".json");
 	var q = JSON.parse(content);
 	var p = q['post']
 	console.log(p['@type']);
@@ -200,11 +214,22 @@ function makeFavourite(id, a)
 	if (checkIndex > -1)
 	{
 		favourites.splice(checkIndex, 1);
+		favposts.splice(checkIndex, 1);
 		el.className = "nonfavourite";
 	}
 	else
 	{
 		favourites.push(id);
+		favposts.push(findPost(id));
 		el.className = "favourited";
 	}
+}
+
+function findPost(id)
+{
+	for(var i = 0; i < photodict.length; i++) if (photodict[i]['id'] == id) return photodict[i];
+	for(var i = 0; i < photosetdict.length; i++) if (photosetdict[i]['id'] == id) return photosetdict[i];
+	for(var i = 0; i < videodict.length; i++) if (videodict[i]['id'] == id) return videodict[i];
+	for(var i = 0; i < textdict.length; i++) if (textdict[i]['id'] == id) return textdict[i];
+	return null;
 }

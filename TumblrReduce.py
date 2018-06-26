@@ -45,9 +45,9 @@ def findMedia(sourceP, sourceV, sourceT):
 a = decodeFile()
 for i in range(len(a)):
 	print ("Loading blog: " + a[i])
-	contentphoto = retriveContent(a[i], 100, 'photo')
-	contentvideo = retriveContent(a[i], 100, 'video')
-	contentregul = retriveContent(a[i], 100, 'regular')
+	contentphoto = retriveContent(a[i], 500, 'photo')
+	contentvideo = retriveContent(a[i], 500, 'video')
+	contentregul = retriveContent(a[i], 500, 'regular')
 	content = findMedia(contentphoto, contentvideo, contentregul)
 	writeToFiles(a[i], content)
 	print("Successful.")

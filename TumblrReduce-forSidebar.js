@@ -16,18 +16,20 @@ function setListOfWebsites(lists)
 
 function configSidebar()
 {
-	document.getElementById("showList").innerHTML = '<li class="navigationsub"><a href="#">List of Tumblr Websites: </a></li><li class="selected"><a href="#" onclick = "makeShowDict(\'all blogs\')">&gt;show posts from all blogs</a></li>';
+	document.getElementById("showList").innerHTML = '<li class="navigationsub"><a href="#">List of Tumblr Websites: </a></li><li class="selected"><a href="#" onclick = "findMedia(\'all blogs\')">&gt;show posts from all blogs</a></li>';
 	if (!localStorage['siteList'])siteList = getListOfWebsites();
 	for(var i = 0; i < siteList.length; i++)
 	{
-		var a = document.createElement("a");
-		a.innerHTML = siteList[i];
-		a.href = "#";
-		a.onclick = function() {
-			makeShowDict(siteList[i]);
-		};
 		var b = document.createElement("li");
-		b.appendChild(a);
+		// var a = document.createElement("a");
+		// a.innerHTML = siteList[i];
+		// a.href = "#";
+		// console.log(siteList[i]);
+		// a.onclick = function() {
+			// findMedia(siteList[i]);
+		// };
+		// b.appendChild(a);
+		b.innerHTML = '<a href="#" onclick="findMedia(\'' + siteList[i] +'\');"> ' + siteList[i] +' </a>';
 		document.getElementById("showList").appendChild(b);
 	}
 	
