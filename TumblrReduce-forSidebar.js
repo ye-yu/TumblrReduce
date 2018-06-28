@@ -21,14 +21,6 @@ function configSidebar()
 	for(var i = 0; i < siteList.length; i++)
 	{
 		var b = document.createElement("li");
-		// var a = document.createElement("a");
-		// a.innerHTML = siteList[i];
-		// a.href = "#";
-		// console.log(siteList[i]);
-		// a.onclick = function() {
-			// findMedia(siteList[i]);
-		// };
-		// b.appendChild(a);
 		b.innerHTML = '<a href="#" onclick="findMedia(\'' + siteList[i] +'\');"> ' + siteList[i] +' </a>';
 		document.getElementById("showList").appendChild(b);
 	}

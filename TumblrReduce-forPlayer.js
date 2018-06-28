@@ -59,7 +59,7 @@ function pushContent()
 			case 'video':
 			case 'text':
 				var embedFrag = document.createElement('div');
-				embedFrag.innerHTML = e['content']['embed'];
+				embedFrag.innerHTML = checkEmbed(e['content']['embed']);
 				frag.appendChild(d);
 				frag.appendChild(embedFrag);
 				break;
@@ -122,6 +122,18 @@ function findMedia(blogName)
 {
 	console.log(blogName);
 	document.getElementById('blogname').innerHTML = blogName;
+	if(blogName == "fav")
+	{
+		hideSeen = false;
+		for(var i = 0; i < favposts.length; i++)
+		{
+			if ('embed' in favposts[i]) showdict.push({'type': 'video', 'content': favposts[i]});
+			if ('link' in favposts[i]) showdict.push({'type': 'photo', 'content': favposts[i]});
+			if ('links' in favposts[i]) showdict.push({'type': 'photoset', 'content': favposts[i]});
+		}
+		reloadPage();
+		return;
+	}
 	if (blogName == "seen") hideSeen = false;
 	else hideSeen = true;
 	if(blogName == "all blogs" || blogName == "seen") 
@@ -232,4 +244,39 @@ function findPost(id)
 	for(var i = 0; i < videodict.length; i++) if (videodict[i]['id'] == id) return videodict[i];
 	for(var i = 0; i < textdict.length; i++) if (textdict[i]['id'] == id) return textdict[i];
 	return null;
+}
+
+function checkEmbed(content)
+{
+	var a = document.createElement('div');
+	a.innerHTML = content;
+	checkElement(a);
+	return a.innerHTML;
+}
+
+function checkElement(el)
+{
+	if (el.childElementCount == 0)
+	{
+		if(el.nodeName == "IMG")
+		{
+			if(el.src.indexOf(".gif") != -1 && !headerConfig['panel8'])
+			{
+				var imgSrc = el.src;
+				el.onclick = function ()
+				{
+					this.src = imgSrc;
+				}
+				el.src = "placeholder.png";
+			}
+			else
+				el.src = trimToAPI(el.src);
+			console.log("Image: " + el.src);
+		}
+	}
+	else
+	{
+		for(var i = 0; i < el.childElementCount; i++)
+			checkElement(el.childNodes[i]);
+	}
 }

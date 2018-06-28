@@ -68,6 +68,7 @@ window.onload = function()
 		headerConfig = JSON.parse(localStorage['headerConfig']);
 		siteList = JSON.parse(localStorage['siteList']);
 		favourites = JSON.parse(localStorage['favourites']);
+		favposts = JSON.parse(localStorage['favposts']);
 		seenposts = JSON.parse(localStorage['seenposts']);
 		seen = JSON.parse(localStorage['seen']);
 		checkSiteList();
@@ -112,6 +113,7 @@ function saveToLocalStorage()
 	localStorage.setItem('headerConfig', JSON.stringify(headerConfig));
 	localStorage.setItem('siteList', JSON.stringify(siteList));
 	localStorage.setItem('favourites', JSON.stringify(favourites));
+	localStorage.setItem('favposts', JSON.stringify(favposts));
 	localStorage.setItem('seenposts', JSON.stringify(seenposts));
 	localStorage.setItem('seen', JSON.stringify(seen));
 

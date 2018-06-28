@@ -44,6 +44,9 @@ def findMedia(sourceP, sourceV, sourceT):
 	
 a = decodeFile()
 for i in range(len(a)):
+	b = input("Continue with + " + a[i] + "? (Y or y to confirm) -> ")
+	if not (b == 'Y' or b == 'y'):
+		continue
 	print ("Loading blog: " + a[i])
 	contentphoto = retriveContent(a[i], 500, 'photo')
 	contentvideo = retriveContent(a[i], 500, 'video')
