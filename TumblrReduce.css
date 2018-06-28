@@ -15,7 +15,10 @@ blockquote
 	margin: 0px 0px 1px 35px;
 }
 
-.page {
+blockquote img {
+	width: 50%;
+}
+page {
 	margin:0 auto;
 	overflow:hidden;
 	width:auto;

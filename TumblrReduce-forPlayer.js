@@ -4,7 +4,7 @@ var posts = [], seenposts = [], seen = [];
 var siteList = [];
 var favourites = [], favposts = [];
 var reducepercentage = 35;
-var hideSeen = true;
+var hideSeen = true, showFav = false;
 function reloadPage()
 {
 	document.getElementById("showContent").innerHTML = '';
@@ -78,11 +78,14 @@ function addImagesToDiv(div, imageLink, isGIF)
 	var img = document.createElement("img");
 	img.className = "playerimages";
 	img.style.width = "45%";
+	img.alt = "[image]";
 	if (isGIF)
 	{
 		img.src = "placeholder.png";
 		if (headerConfig['panel8']) img.src = imageLink;
 		img.onclick = function() {
+			img.alt = "[loading]";
+			this.src = "";
 			this.src = imageLink;
 		}
 	}
@@ -125,6 +128,7 @@ function findMedia(blogName)
 	if(blogName == "fav")
 	{
 		hideSeen = false;
+		showdict = [];
 		for(var i = 0; i < favposts.length; i++)
 		{
 			if ('embed' in favposts[i]) showdict.push({'type': 'video', 'content': favposts[i]});
@@ -260,11 +264,13 @@ function checkElement(el)
 	{
 		if(el.nodeName == "IMG")
 		{
+			el.alt = "[image]";
 			if(el.src.indexOf(".gif") != -1 && !headerConfig['panel8'])
 			{
 				var imgSrc = el.src;
 				el.onclick = function ()
 				{
+					this.src = "";
 					this.src = imgSrc;
 				}
 				el.src = "placeholder.png";
